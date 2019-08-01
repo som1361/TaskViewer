@@ -7,5 +7,5 @@ import dagger.Component
 @AppScope
 @Component(modules = [AppModule::class])
 interface AppComponent {
-fun inject(target:TaskApplication)
+    fun inject(target:TaskApplication)
 }

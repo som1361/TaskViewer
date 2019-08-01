@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TaskViewer</string>
+    <string name="empty_list">No result found.</string>
+    <string name="error_get_data">Something went wrong.</string>
 </resources>

@@ -10,7 +10,7 @@ import com.example.taskviewer.DI.module.AppModule
 
 class TaskApplication : Application() {
 
-    lateinit var photoComponent: AppComponent
+    lateinit var taskComponent: AppComponent
     companion object {
         private lateinit var  asyncComponent: AsyncComponent
         fun getAsyncComponent(): AsyncComponent{
@@ -25,7 +25,7 @@ class TaskApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        photoComponent = initDagger(this)
+        taskComponent = initDagger(this)
         asyncComponent = DaggerAsyncComponent.create()
     }
 }

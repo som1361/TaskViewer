@@ -2,7 +2,7 @@ package com.example.taskviewer.DI.component
 
 import com.example.taskviewer.DI.Scope.ActivityScope
 import com.example.taskviewer.DI.module.ActivityModule
-import com.example.taskviewer.MainActivity
+import com.example.taskviewer.view.MainActivity
 import dagger.Component
 
 @ActivityScope
