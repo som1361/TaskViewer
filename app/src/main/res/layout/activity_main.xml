@@ -9,13 +9,12 @@
         tools:context=".view.MainActivity">
 
     <android.support.v7.widget.RecyclerView
-            android:layout_width="0dp"
-            android:layout_margin="8dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:id="@+id/feed_recyclerview"
-            app:layout_constraintTop_toBottomOf="parent">
-    </android.support.v7.widget.RecyclerView>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <ProgressBar
             android:id="@+id/feed_progress_bar"

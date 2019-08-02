@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.taskviewer.R
-import com.example.taskviewer.domain.model.FeedItemDTO
+import com.example.taskviewer.domain.model.FeedItem
 import kotlinx.android.synthetic.main.feed_item.view.*
 
 //Make the class extend RecyclerView.ViewHolder, allowing the adapter to use it as as a ViewHolder
 class FeedAdapter() : RecyclerView.Adapter<FeedAdapter.FeedHolder>() {
-    var feedItems: List<FeedItemDTO> = arrayListOf()
+    var feedItems: List<FeedItem> = arrayListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedAdapter.FeedHolder {
         val view = LayoutInflater.from(parent!!.context).inflate(R.layout.feed_item, parent, false)
         return FeedHolder(view!!)
@@ -23,7 +23,7 @@ class FeedAdapter() : RecyclerView.Adapter<FeedAdapter.FeedHolder>() {
         holder.bindFeed(feedItems[position])
     }
 
-    fun updateFeed(feedItems: List<FeedItemDTO>) {
+    fun updateFeed(feedItems: List<FeedItem>) {
         this.feedItems = feedItems
 
     }
@@ -31,9 +31,9 @@ class FeedAdapter() : RecyclerView.Adapter<FeedAdapter.FeedHolder>() {
     class FeedHolder(v: View) : RecyclerView.ViewHolder(v) {
         //Add a reference to the view you’ve inflated to allow the ViewHolder to access the views as an extension property
         private var view: View = v
-        private var feedItem: FeedItemDTO? = null
+        private var feedItem: FeedItem? = null
 
-        fun bindFeed(feedItem: FeedItemDTO) {
+        fun bindFeed(feedItem: FeedItem) {
             this.feedItem = feedItem
             Glide.with(view.context).load(feedItem.image_url).into(view.profile_image)
             view.task_description.text = feedItem.text

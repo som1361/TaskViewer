@@ -1,4 +1,4 @@
-package com.example.webviewscreenshot.utils
+package com.example.taskviewer.utils
 
 import android.content.Context
 import android.graphics.Color

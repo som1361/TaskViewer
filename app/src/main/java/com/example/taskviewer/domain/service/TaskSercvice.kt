@@ -11,13 +11,13 @@ import retrofit2.http.Path
 
 interface TaskService {
     @GET("feed.json")
-    fun getFeed(): Observable<List<FeedItemDTO>>
+    fun getFeed(): Observable<List<FeedItem>>
 
     @GET("task/{id}.json")
-    fun getTask(@Path("id") id: Int): Observable<TaskDTO>
+    fun getTask(@Path("id") id: Int): Observable<Task>
 
     @GET("profile/{id}.json")
-    fun getProfile(@Path("id") id: Int): Observable<ProfileDTO>
+    fun getProfile(@Path("id") id: Int): Observable<Profile>
 
     companion object {
         fun create(): TaskService {

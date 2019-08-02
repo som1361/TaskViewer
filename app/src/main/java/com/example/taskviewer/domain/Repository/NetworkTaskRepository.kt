@@ -1,18 +1,18 @@
 package com.example.taskviewer.model
 
 import com.example.taskviewer.domain.Repository.TaskRepository
-import com.example.taskviewer.domain.model.FeedItemDTO
-import com.example.taskviewer.domain.model.ProfileDTO
-import com.example.taskviewer.domain.model.TaskDTO
+import com.example.taskviewer.domain.model.FeedItem
+import com.example.taskviewer.domain.model.Profile
+import com.example.taskviewer.domain.model.Task
 import com.example.taskviewer.domain.service.TaskService
 import io.reactivex.Observable
 
 class NetworkTaskRepository : TaskRepository {
-    override fun getTask(taskId: Int): Observable<TaskDTO> {
+    override fun getTask(taskId: Int): Observable<Task> {
         return taskApiServe.getTask(taskId)
     }
 
-    override fun getProfile(profileId: Int): Observable<ProfileDTO> {
+    override fun getProfile(profileId: Int): Observable<Profile> {
         return taskApiServe.getProfile(profileId)
     }
 
@@ -20,7 +20,7 @@ class NetworkTaskRepository : TaskRepository {
         TaskService.create()
     }
 
-    override fun getFeed(): Observable<List<FeedItemDTO>> {
+    override fun getFeed(): Observable<List<FeedItem>> {
         return taskApiServe.getFeed()
     }
 
