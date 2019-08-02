@@ -1,19 +1,15 @@
 package com.example.taskviewer.view
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
-import android.view.MotionEvent
-import android.view.View
 import com.example.taskviewer.DI.component.ActivityComponent
 import com.example.taskviewer.DI.component.DaggerActivityComponent
 import com.example.taskviewer.DI.module.ActivityModule
 import com.example.taskviewer.R
 import com.example.taskviewer.application.TaskApplication
-import com.example.taskviewer.domain.model.FeedDTO
+import com.example.taskviewer.domain.model.FeedItemDTO
 import com.example.taskviewer.viewmodel.MainViewModel
 import com.example.webviewscreenshot.utils.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,7 +18,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var mMainViewModel: MainViewModel
-    private lateinit var mLinearLayoutManager: LinearLayoutManager
+    private lateinit var mLinearLayoutManager: GridLayoutManager
     private lateinit var mFeedAdapter: FeedAdapter
     lateinit var activityComponent: ActivityComponent
 
@@ -53,22 +49,19 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun updateFeed(it: List<FeedDTO.Feed>?) {
-        if (it != null) {
+    private fun updateFeed(it: List<FeedItemDTO>) {
             mFeedAdapter.updateFeed(it)
             mFeedAdapter.notifyDataSetChanged()
-
-        }
     }
 
     private fun loadView() {
         setContentView(R.layout.activity_main)
         mFeedAdapter = FeedAdapter()
-        mLinearLayoutManager = LinearLayoutManager(this)
+        mLinearLayoutManager = GridLayoutManager(this, 2)
         feed_recyclerview.layoutManager = mLinearLayoutManager
         feed_recyclerview.adapter = mFeedAdapter
-        feed_progress_bar.hide()
-        mMainViewModel.fetchFeed()s
+        feed_progress_bar.show()
+        mMainViewModel.fetchFeed()
     }
 
     override fun onDestroy() {

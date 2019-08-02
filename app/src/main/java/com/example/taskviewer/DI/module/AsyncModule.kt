@@ -1,7 +1,7 @@
 package com.example.taskviewer.DI.module
 
 import com.example.taskviewer.DI.Scope.AsyncScope
-import com.example.taskviewer.domain.model.FeedDTO
+import com.example.taskviewer.domain.model.FeedItemDTO
 import dagger.Module
 import dagger.Provides
 import io.reactivex.subjects.PublishSubject
@@ -22,6 +22,6 @@ class AsyncModule() {
     @Provides
     @AsyncScope
     @Named(GET_Feed_OBSERVABLE)
-    fun provideGetFeedObservable(): PublishSubject<List<FeedDTO.Feed>> = PublishSubject.create()
+    fun provideGetFeedObservable(): PublishSubject<List<FeedItemDTO>> = PublishSubject.create()
 
 }

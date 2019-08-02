@@ -1,8 +1,13 @@
 package com.example.taskviewer.domain.Repository
 
-import com.example.taskviewer.domain.model.FeedDTO
-import io.reactivex.Single
+import com.example.taskviewer.domain.model.FeedItemDTO
+import com.example.taskviewer.domain.model.ProfileDTO
+import com.example.taskviewer.domain.model.TaskDTO
+import io.reactivex.Observable
 
 interface TaskRepository {
-    fun fetchFeed(): Single<List<FeedDTO.Feed>>
+    fun getFeed(): Observable<List<FeedItemDTO>>
+    fun getTask(taskId:Int): Observable<TaskDTO>
+    fun getProfile(profileId:Int): Observable<ProfileDTO>
+
 }
